@@ -1,24 +1,31 @@
 "use client";
 import { LoadingButton } from "@mui/lab";
-import { Box, Stack, TextField, Typography } from "@mui/material";
-import { NextResponse } from "next/server";
+import {
+  Box,
+  IconButton,
+  InputAdornment,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
-import { serialize } from "cookie";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 
-const LoginCard = styled(Box)`
+const LoginCardStyled = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  background-color: #ffff;
   border-radius: 8px;
-  height: 60%;
+  height: 50%;
   width: 25%;
   color: white;
+  border: 1px solid #ccc;
 `;
 
 interface LoginFormInputs {
@@ -28,6 +35,7 @@ interface LoginFormInputs {
 
 const CardLogin = () => {
   const router = useRouter();
+  const [showPassword, setShowPassword] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const {
     register,
@@ -36,7 +44,6 @@ const CardLogin = () => {
   } = useForm<LoginFormInputs>();
 
   const onSubmitLogin = (values: LoginFormInputs) => {
-    console.log(values);
     setLoading(true);
     const { email, password } = values;
 
@@ -53,7 +60,7 @@ const CardLogin = () => {
   };
 
   return (
-    <LoginCard>
+    <LoginCardStyled>
       <form
         onSubmit={handleSubmit(onSubmitLogin)}
         style={{
@@ -65,10 +72,19 @@ const CardLogin = () => {
         }}
       >
         <Stack direction={"column"} textAlign={"center"}>
-          <Typography color="primary" variant="h5" fontWeight={700}>
+          <Typography
+            color="primary"
+            variant="h5"
+            fontWeight={700}
+            style={{ fontFamily: "Poppins" }}
+          >
             Login
           </Typography>
-          <Typography color="primary" variant="subtitle2">
+          <Typography
+            color="primary"
+            variant="subtitle2"
+            style={{ fontFamily: "Poppins" }}
+          >
             entre com seu usuário senha
           </Typography>
         </Stack>
@@ -80,11 +96,26 @@ const CardLogin = () => {
           {...register("email", { required: "A senha é obrigatória" })}
         />
         <TextField
-          type="password"
+          type={showPassword ? "text" : "password"}
           size="small"
           variant="outlined"
           label="Senha"
           {...register("password", { required: true })}
+          slotProps={{
+            input: {
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={() =>
+                      setShowPassword((showPassword) => !showPassword)
+                    }
+                  >
+                    {showPassword ? <BsEye /> : <BsEyeSlash />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            },
+          }}
         />
         <LoadingButton
           loading={loading}
@@ -92,12 +123,18 @@ const CardLogin = () => {
           variant="contained"
           color="primary"
           size="large"
-          style={{ marginTop: "8px" }}
+          style={{
+            marginTop: "8px",
+            fontSize: "16px",
+            textTransform: "capitalize",
+            fontFamily: "Poppins",
+            fontWeight: 700,
+          }}
         >
           Entrar
         </LoadingButton>
       </form>
-    </LoginCard>
+    </LoginCardStyled>
   );
 };
 
