@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bix Tec
 
-## Getting Started
+**Bix Tec** é um projeto desenvolvido em Next.js com TypeScript, destinado a mostrar dados em um dashboard financeiro. O projeto inclui funcionalidades de login, logout e controle de requisições, proporcionando uma experiência de usuário intuitiva e eficiente.
 
-First, run the development server:
+## Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js**: Framework React para construção de aplicações web com renderização no lado do servidor.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática, melhorando a qualidade do código.
+- **React**: Biblioteca para construção de interfaces de usuário.
+- **Material-UI (MUI)**: Biblioteca de componentes React que implementa o Material Design.
+- **Highcharts**: Para realizar amostragem de gráficos.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pré-requisitos
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Antes de começar, você precisará ter instalado em sua máquina:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Node.js](https://nodejs.org/) (versão 16 ou superior)
+- (Adicione outros pré-requisitos, se necessário)
 
-## Learn More
+## Instalação
 
-To learn more about Next.js, take a look at the following resources:
+Siga os passos abaixo para instalar e configurar o projeto:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone o repositório:
+   ```
+   git clone https://github.com/usuario/bix-tec.git
+   cd bix-tec
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Instale as depedências:
+   ```
+   yarn 
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Execute o projeto:
+   ```
+   yarn dev
